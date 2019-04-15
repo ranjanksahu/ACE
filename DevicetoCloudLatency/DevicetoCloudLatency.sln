@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28721.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadCloudStorage", "ReadCloudStorage\ReadCloudStorage.csproj", "{204ED3FC-3640-460B-935A-1C0948060250}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulatedDevice", "SimulatedDevice\SimulatedDevice.csproj", "{40CDB73C-8515-4255-B1E3-D98090203011}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dataobjects", "Dataobjects\Dataobjects.csproj", "{2D6DD6E1-D6D5-409C-869E-E126E307F50A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBOperations", "DBOperations\DBOperations.csproj", "{BD36D07B-5E69-4DB8-9F35-55AC07C1FB4C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chart", "Chart\Chart.csproj", "{02055937-2020-48A2-9FF3-4E1BA190BCC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulatedDeviceWestUS", "SimulatedDeviceWestUS\SimulatedDeviceWestUS.csproj", "{CE094B2F-7DE0-4B4F-9C68-D90D63FC0E25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadCloudStorageWestUS", "ReadCloudStorageWestUS\ReadCloudStorageWestUS.csproj", "{1559A1A8-EFF4-4534-B4D4-C945BF85A585}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{204ED3FC-3640-460B-935A-1C0948060250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204ED3FC-3640-460B-935A-1C0948060250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204ED3FC-3640-460B-935A-1C0948060250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204ED3FC-3640-460B-935A-1C0948060250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40CDB73C-8515-4255-B1E3-D98090203011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40CDB73C-8515-4255-B1E3-D98090203011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40CDB73C-8515-4255-B1E3-D98090203011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40CDB73C-8515-4255-B1E3-D98090203011}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6DD6E1-D6D5-409C-869E-E126E307F50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6DD6E1-D6D5-409C-869E-E126E307F50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6DD6E1-D6D5-409C-869E-E126E307F50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6DD6E1-D6D5-409C-869E-E126E307F50A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD36D07B-5E69-4DB8-9F35-55AC07C1FB4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD36D07B-5E69-4DB8-9F35-55AC07C1FB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD36D07B-5E69-4DB8-9F35-55AC07C1FB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD36D07B-5E69-4DB8-9F35-55AC07C1FB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02055937-2020-48A2-9FF3-4E1BA190BCC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02055937-2020-48A2-9FF3-4E1BA190BCC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02055937-2020-48A2-9FF3-4E1BA190BCC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02055937-2020-48A2-9FF3-4E1BA190BCC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE094B2F-7DE0-4B4F-9C68-D90D63FC0E25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE094B2F-7DE0-4B4F-9C68-D90D63FC0E25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE094B2F-7DE0-4B4F-9C68-D90D63FC0E25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE094B2F-7DE0-4B4F-9C68-D90D63FC0E25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1559A1A8-EFF4-4534-B4D4-C945BF85A585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1559A1A8-EFF4-4534-B4D4-C945BF85A585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1559A1A8-EFF4-4534-B4D4-C945BF85A585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1559A1A8-EFF4-4534-B4D4-C945BF85A585}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0454147B-A4C7-4410-A23B-D6C768F6118F}
+	EndGlobalSection
+EndGlobal

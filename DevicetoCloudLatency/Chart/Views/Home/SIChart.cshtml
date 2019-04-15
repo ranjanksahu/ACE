@@ -1,0 +1,190 @@
+﻿@{
+    ViewData["Title"] = "South India";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/Chart.js"></script>
+
+<script>
+
+    $(function () {
+        DrawChart();
+        setInterval(DrawChart, 60000);
+    });
+
+    function DrawChart() {
+        var label, ackTimeDifference, latency, avgTime, maxTime, minTime, rangelabels, rangeData;
+        $.ajax({
+            url: "Home/GetOtherChartDataSI",
+            cache: false,
+            async: false,
+            success: function (result) {
+                avgTime = result.averageTime;
+                maxTime = result.maxTime;
+                minTime = result.minTime;
+            }
+        });
+
+        $("#avg").text(avgTime);
+        $("#max").text(maxTime);
+        $("#min").text(minTime);
+
+        $.ajax({
+            url: "Home/GetChartDataSI",
+            cache: false,
+            async: false,
+            success: function (result) {
+                label = result.chartData.sentDTTM;
+                latency = result.chartData.latency;
+                ackTimeDifference = result.chartData.ackTimeDifference;
+            }
+        });
+
+        $.ajax({
+            url: "Home/GetTimeRangewithCountSI",
+            cache: false,
+            async: false,
+            success: function (result) {
+                var value0 = result.rangeData['Less than 1 Second'];
+                var value1_2 = result.rangeData['1 - 2 Seconds'];
+                var value2_3 = result.rangeData['2 - 3 Seconds'];
+                var value3_4 = result.rangeData['3 - 4 Seconds'];
+                var value4_5 = result.rangeData['4 - 5 Seconds'];
+                var value5_6 = result.rangeData['5 - 6 Seconds'];
+                var value6_7 = result.rangeData['6 - 7 Seconds'];
+                var value7_8 = result.rangeData['7 - 8 Seconds'];
+                var value10 = result.rangeData['More than 10 Seconds'];
+                rangeData = [value0, value1_2, value2_3, value3_4, value4_5, value5_6, value6_7, value7_8, value10]                
+            }
+        });
+        var ctxlatency = document.getElementById("latency").getContext('2d');
+        //var data1 = [20, 10, 50, 30, 40, 60, 90];
+        //var labels1 = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        new Chart(ctxlatency, {
+            type: 'line',
+            data: {
+                labels: label,
+                datasets: [
+                    {
+                        label: "Device payload sent time vs tie to reach to reach in IoT Hub (South India Location)",
+                        data: latency,
+                        fill: false,
+                        borderColor: 'red',
+                        backgroundColor: 'red',
+                        showLine: false,
+                        pointBorderWidth: 1,
+                        pointRadius: 2,
+                    },
+                    {
+                        label: "Device payload sent time vs time to acknowledge from IoT Hub (South India Location)",
+                        data: ackTimeDifference,
+                        fill: false,
+                        borderColor: 'green',
+                        backgroundColor: 'green',
+                        showLine: false,
+                        pointBorderWidth: 1,
+                        pointRadius: 2,
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Chart"
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    yAxes: [{
+                        //showLines: true,
+                        ticks: {
+                            beginAtZero: true
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+
+
+        var ctxrange = document.getElementById("range").getContext('2d');
+        var rangelabels = ["Less than 1 Second", "1 - 2 Seconds", "2 - 3 Seconds", "3 - 4 Seconds", "4 - 5 Seconds", "5 - 6 Seconds", "6 - 7 Seconds",  "7 - 8 Seconds", "More than 10 Seconds"];
+        new Chart(ctxrange, {
+            type: 'bar',
+            data: {
+                labels: rangelabels,
+                datasets: [{
+                    label: 'Count of range of time difference payload sent time and received by IoT Hub',
+                    data: rangeData,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 80
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
+    }
+</script>
+
+<div id="otherdetails">
+    <span style="font-weight:bold;">Location:</span>
+    <span id="location">South India</span>
+    <br />
+    <span style="font-weight:bold;">Average Sent Received Time Difference:</span>
+    <span id="avg"></span>
+    <br />
+    <span style="font-weight:bold;">Maximum Sent Received Time Difference:</span>
+    <span id="max"></span>
+    <br />
+    <span style="font-weight:bold;">Minimum Sent Received Time Difference:</span>
+    <span id="min"></span>
+</div>
+
+<div class="container">
+    <canvas id="latency" width="600" height="400"></canvas>
+</div>
+
+<div class="container">
+    <canvas id="range" width="600" height="400"></canvas>
+</div>
